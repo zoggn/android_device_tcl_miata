@@ -1,1 +1,1 @@
-add_lunch_combo cm_Miata-userdebug
+add_lunch_combo cm_miata-userdebug
