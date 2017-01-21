@@ -6,11 +6,11 @@ TARGET_SCREEN_HEIGHT := 960
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/tcl/miata/Miata.mk)
+$(call inherit-product, device/tcl/miata/miata.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := Miata
-PRODUCT_NAME := cm_Miata
+PRODUCT_DEVICE := miata
+PRODUCT_NAME := cm_miata
 PRODUCT_BRAND := TCL
 PRODUCT_MODEL := 6016X
 PRODUCT_MANUFACTURER := TCL
