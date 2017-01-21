@@ -18,7 +18,7 @@
 set -e
 
 # Required!
-DEVICE=Miata
+DEVICE=miata
 VENDOR=tcl
 
 # Load extractutils and do some sanity checks
