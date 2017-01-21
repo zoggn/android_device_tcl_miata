@@ -18,7 +18,7 @@ DEVICE_PACKAGE_OVERLAYS += device/tcl/miata/overlay
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-$(call inherit-product-if-exists, vendor/tcl/miata/Miata-vendor.mk)
+$(call inherit-product-if-exists, vendor/tcl/miata/miata-vendor.mk)
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
