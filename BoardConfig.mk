@@ -30,7 +30,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
-TARGET_SPECIFIC_HEADER_PATH += device/zte/kis3/include
+TARGET_SPECIFIC_HEADER_PATH += device/tcl/miata/include
 
 # Inline kernel building
 BOARD_KERNEL_SEPARATED_DT := true
@@ -57,6 +57,9 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # Build
 USE_CLANG_PLATFORM_BUILD := true
+
+#
+BLOCK_BASED_OTA := false
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
