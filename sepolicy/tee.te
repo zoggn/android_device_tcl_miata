@@ -1,0 +1,1 @@
+allow tee rpmb_device:blk_file rw_file_perms;

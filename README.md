@@ -1,4 +1,4 @@
-CyanogenMod 13 device configuration for [Alcatel idol 2 Mini / Miata_3G]
+CyanogenMod 14.1 device configuration for [Alcatel idol 2 Mini / Miata_3G]
 
 How to build:
 -------------
@@ -6,4 +6,4 @@ How to build:
 Compile:
 
     . build/envsetup.sh
-    lunch cm_Miata_userdebug
+    lunch cm_miata_userdebug
