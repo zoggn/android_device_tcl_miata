@@ -46,7 +46,7 @@ char const*const RED_BLINK_FILE
         = "/sys/class/leds/red/blink";
 
 char const*const LCD_FILE
-        = "/sys/class/leds/lcd-backlight/brightness";
+        = "/sys/class/leds/wled-backlight/brightness";
 
 char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
@@ -104,7 +104,7 @@ set_light_backlight(struct light_device_t* dev,
     int err = 0;
     int brightness = rgb_to_brightness(state);
     pthread_mutex_lock(&g_lock);
-    err = write_int(LCD_FILE, brightness);
+    err = write_int_FILE, brightness);
     pthread_mutex_unlock(&g_lock);
     return err;
 }
