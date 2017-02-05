@@ -60,7 +60,7 @@ on boot
     #[ECID:000000] ZTEBSP wanghaifei 20130905 end, for sensor init
 
     #//[ECID:0000]ZTE_BSP maxiaoping 20130821 modify leds&vibrator feature for 8x26,start.
-    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/wled-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/red/brightness
     chown system system /sys/class/leds/green/brightness
