@@ -65,7 +65,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 
 # Charger
-BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BACKLIGHT_PATH := /sys/class/leds/wled-backlight/brightness
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # FM radio
