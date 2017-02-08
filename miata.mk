@@ -60,6 +60,9 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+    
+# Locales
+PRODUCT_LOCALES := uk_UA ru_RU en_US    
 
 # FM radio
 PRODUCT_PACKAGES += \
