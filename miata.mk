@@ -42,7 +42,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_qc-opt \
-    libshim_rmt_storage
+    libshim_rmt_storage \
+    libshim_tcl_camera
 
 # Display
 PRODUCT_PACKAGES += \
