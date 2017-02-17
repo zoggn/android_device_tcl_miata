@@ -38,6 +38,11 @@ PRODUCT_PACKAGES += \
     camera.msm8610 \
     Snap
 
+#Sensors
+PRODUCT_PACKAGES += \
+    sensors.msm8610 \
+    sensors.qcom
+
 # Compatibility
 PRODUCT_PACKAGES += \
     libboringssl-compat \
