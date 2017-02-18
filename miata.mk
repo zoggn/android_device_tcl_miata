@@ -38,18 +38,12 @@ PRODUCT_PACKAGES += \
     camera.msm8610 \
     Snap
 
-#Sensors
-PRODUCT_PACKAGES += \
-    sensors.msm8610 \
-    sensors.qcom
-
 # Compatibility
 PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_qc-opt \
     libshim_rmt_storage \
-    libshim_tcl_camera \
-	libshim_libwvm
+    libshim_tcl_camera
 
 # Display
 PRODUCT_PACKAGES += \
