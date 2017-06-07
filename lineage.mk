@@ -10,7 +10,7 @@ $(call inherit-product, device/tcl/miata/miata.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := miata
-PRODUCT_NAME := cm_miata
+PRODUCT_NAME := lineage_miata
 PRODUCT_BRAND := TCL
 PRODUCT_MODEL := 6016X
 PRODUCT_MANUFACTURER := TCL
