@@ -72,8 +72,10 @@ on boot
     # vibrator intensity
     chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
 
-    # display color calibration
+    # Display
     chown system system /sys/devices/virtual/graphics/fb0/kcal
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
 
     # key disabler
     chown system system /proc/touchscreen/keypad_enable
