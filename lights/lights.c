@@ -51,6 +51,8 @@ char const*const LCD_FILE
 char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
 
+#define MAX_BUTTON_BRIGHTNESS 40
+
 /**
  * device methods
  */
@@ -103,6 +105,8 @@ set_light_backlight(struct light_device_t* dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
+    // Scale the brightness to between 0-40, as 40 is the max
+    brightness = ((float) brightness / 255.0) * MAX_BUTTON_BRIGHTNESS;
     pthread_mutex_lock(&g_lock);
     err = write_int(LCD_FILE, brightness);
     pthread_mutex_unlock(&g_lock);
