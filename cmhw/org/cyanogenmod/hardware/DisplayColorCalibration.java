@@ -16,14 +16,17 @@
 
 package org.cyanogenmod.hardware;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import org.cyanogenmod.hardware.util.FileUtils;
+
+import java.io.File;
 
 public class DisplayColorCalibration {
 
     private static final String KCAL_TUNING_FILE = "/sys/devices/virtual/graphics/fb0/kcal";
 
     public static boolean isSupported() {
-        return FileUtils.isFileWritable(KCAL_TUNING_FILE);
+        File file = new File(KCAL_TUNING_FILE);
+        return file.exists();
     }
 
     public static int getMaxValue() {

@@ -1,9 +1,14 @@
-LineageOS 14.1 device configuration for [Alcatel idol 2 Mini / Miata_3G]
+CyanogenMod 12.1 device configuration for Alcatel Idol 2 Mini.
 
 How to build:
 -------------
 
+Initialize repo:
+
+    repo init -u git://github.com/CyanogenMod/android.git -b cm-12.1
+    repo sync
+
 Compile:
 
     . build/envsetup.sh
-    lunch lineage_miata_userdebug
+    brunch miata

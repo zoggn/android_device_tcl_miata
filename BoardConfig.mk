@@ -17,8 +17,6 @@
 # Platform
 TARGET_NO_BOOTLOADER := true
 
-TARGET_OTA_ASSERT_DEVICE := miata
-
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno302
 TARGET_BOARD_PLATFORM := msm8610
 TARGET_BOOTLOADER_BOARD_NAME := MSM8610
@@ -29,8 +27,8 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_ARCH_VARIANT := armv7-a-neon
 
-BOARD_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
-BOARD_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 TARGET_SPECIFIC_HEADER_PATH += device/tcl/miata/include
 
@@ -43,13 +41,11 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-LZMA_RAMDISK_TARGETS := recovery
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/tcl/miata/bluetooth
@@ -58,20 +54,17 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Build
-#USE_CLANG_PLATFORM_BUILD := true
+TARGET_SYSTEMIMAGE_USE_SQUISHER := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
-BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Charger
-BACKLIGHT_PATH := /sys/class/leds/wled-backlight/brightness
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # FM radio
 TARGET_QCOM_NO_FM_FIRMWARE := true
-BOARD_HAVE_QCOM_FM := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -88,7 +81,7 @@ BOARD_HARDWARE_CLASS := device/tcl/miata/cmhw/
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Memory
-MALLOC_SVELTE := true
+MALLOC_IMPL := dlmalloc
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
@@ -98,28 +91,45 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 2292170240
 BOARD_CACHEIMAGE_PARTITION_SIZE := 153092096
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Power
+TARGET_POWERHAL_VARIANT := qcom
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_DENSITY := hdpi
 TARGET_RECOVERY_FSTAB := device/tcl/miata/ramdisk/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 
-# RIL
-TARGET_RIL_VARIANT := caf
-BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
-BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/tcl/miata/sepolicy
+
+BOARD_SEPOLICY_DIRS += \
+    device/tcl/miata/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file.te \
+    file_contexts \
+    genfs_contexts \
+    init_shell.te \
+    kernel.te \
+    location.te \
+    mediaserver.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    platform_app.te \
+    property.te \
+    property_contexts \
+    rmt_storage.te \
+    system_server.te \
+    thermal-engine.te \
+    wcnss_service.te
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
+BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE := qcwcn
