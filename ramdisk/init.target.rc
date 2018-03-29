@@ -63,9 +63,7 @@ on boot
     chown system system /sys/class/leds/wled-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
     chown system system /sys/class/timed_output/vibrator/enable
     #//[ECID:0000]ZTE_BSP maxiaoping 20130821 modify leds&vibrator feature for 8x26,end.
 
